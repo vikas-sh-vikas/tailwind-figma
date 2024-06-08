@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 type ModalProps = {
   isOpen: boolean;
+  type: string;
   data: {
     label: string;
     input: string;
@@ -9,14 +10,16 @@ type ModalProps = {
   setData: (data: string) => void;
 };
 
-function Modal({ isOpen, data, closeModal, setData }: ModalProps) {
+function Modal({ isOpen, data, closeModal, setData, type }: ModalProps) {
+  const [input, setInput] = useState(data.input);
   const submitFun = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Submit");
+    setData(input);
     closeModal();
   };
   const setDataInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData(e.target.value);
+    setInput(e.target.value);
   };
   const CloseModal = (e: any) => {
     if (e.target.id == "modal") closeModal();
@@ -31,16 +34,18 @@ function Modal({ isOpen, data, closeModal, setData }: ModalProps) {
       >
         <div className="bg-neutral-600 bg-opacity-25 min-h-1/3 w-1/3">
           <form className=" p-8" onSubmit={submitFun}>
-            <h1 className="text-xl text-white text-center">تعديل اسم الشركة</h1>
+            <h1 className="text-xl text-white text-center">
+              Modify the company name
+            </h1>
             <div className="flex flex-col">
               <label className="pb-2 text-end text-neutral-400">
                 {data.label}
               </label>
 
               <input
-                type="text"
+                type={type}
                 id="company"
-                value={data.input}
+                value={input}
                 className="mb-8 text-end bg-neutral-400 bg-opacity-25 border-neutral-900 text-neutral-400 text-sm rounded-xl w-full p-3.5"
                 placeholder={`${data.label}...`}
                 onChange={setDataInput}
@@ -51,7 +56,7 @@ function Modal({ isOpen, data, closeModal, setData }: ModalProps) {
                 type="submit"
                 className="bg-gradient-to-r from-orange-500 to-orange-300 hover:from-orange-400  hover:to-orange-200 text-white rounded-3xl py-3"
               >
-                حفظ التعديل
+                Save the modification
               </button>
             </div>
           </form>

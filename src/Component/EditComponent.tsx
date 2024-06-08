@@ -3,14 +3,14 @@ import Modal from "./Modal";
 
 type EditModal = {
   span: number;
+  type: string;
   data: {
     label: string;
     input: string;
   };
 };
 
-function EditComponent({span,data}: EditModal) {
-
+function EditComponent({ span, data, type }: EditModal) {
   const [isModal, setIsmodal] = useState(false);
   const [inputData, setInputData] = useState(data.input);
   const openModal = () => {
@@ -19,9 +19,9 @@ function EditComponent({span,data}: EditModal) {
   const closeModal = () => {
     setIsmodal(false);
   };
-  const handleChangeData = (e:string) => {
-        setInputData(e)
-  }
+  const handleChangeData = (e: string) => {
+    setInputData(e);
+  };
   return (
     <>
       <div className={`bg-neutral-700 col-span-${span}  rounded-lg p-3`}>
@@ -47,6 +47,7 @@ function EditComponent({span,data}: EditModal) {
           label: data.label,
           input: inputData,
         }}
+        type={type}
         setData={handleChangeData}
       />
     </>
@@ -54,4 +55,3 @@ function EditComponent({span,data}: EditModal) {
 }
 
 export default EditComponent;
- 

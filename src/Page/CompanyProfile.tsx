@@ -1,54 +1,106 @@
 import { useState } from "react";
 import Modal from "../Component/Modal";
 import EditComponent from "../Component/EditComponent";
+import ToggleComponent from "../Component/ToggleComponent";
+import DocComponent from "../Component/DocComponent";
+import UploadComponent from "../Component/UploadComponent";
 
 function CompanyProfile() {
   const [isModal, setIsModal] = useState(true);
-
+  const [isChecked, setIsChecked] = useState(false);
+  const handleToggle = () => {
+    setIsChecked(prevState => !prevState);
+  };
+  console.log("Check Status",isChecked)
   return (
     <div className="h-screen bg-neutral-900">
       <div className="grid gap-2 grid-cols-6 p-4">
-        <h1 className="col-span-6 text-white text-end">ملف الشركة</h1>
-        <EditComponent span={3} 
-        data={{
-        label:"موقع الشركة",
-        input:", شارع14 بجوار محطة المترو",
-        }}/>
-        <EditComponent span={3} 
-        data={{
-        label:"الاسم",
-        input:"الشهد للمقاولات العمومية",
-        }}/>
-        <EditComponent span={3} 
-        data={{
-        label:"تاريخ بداية العمل",
-        input:"14/10/2022",
-        }}/>
-        <EditComponent span={3} 
-        data={{
-        label:"رقم السجل التجارى",
-        input:"1564562951544984",
-        }}/>
-        <div className="bg-neutral-700 h-full col-span-2  rounded-lg p-2 mb-4">
-          <p className="text-sm text-neutral-400 text-end">موقع الشركة</p>
-          <p className="text-lg text-white text-end">
-            الرياض, شارع14 بجوار محطة المترو
-          </p>
-        </div>
-        <EditComponent span={2} 
-        data={{
-        label:"رقم الهاتف",
-        input:"+201092124608",
-        }}/>
-        <EditComponent span={2} 
-        data={{
-        label:"مجال العمل",
-        input:"العقارات والطرق",
-        }}/>
-        {/* <div className="bg-neutral-700 h-12 col-span-3 rounded-lg"></div>
-        <div className="bg-neutral-700 h-12 col-span-3 rounded-lg"></div>
-        <div className="bg-neutral-700 h-12 col-span-3 rounded-lg"></div>
-        <div className="bg-neutral-700 h-12 col-span-3 rounded-lg"></div> */}
+        <h1 className="col-span-6 text-white text-end">Company Profile</h1>
+        <EditComponent
+          span={3}
+          type={"text"}
+          data={{
+            label: "Company Location",
+            input: ", Street 14 next to the metro station",
+          }}
+        />
+        <EditComponent
+          span={3}
+          type={"text"}
+          data={{
+            label: "Name",
+            input: "Al-Shahd for General Contracting",
+          }}
+        />
+        <EditComponent
+          span={3}
+          type={"date"}
+          data={{
+            label: "Start Date",
+            input: "10/14/2022",
+          }}
+        />
+        <EditComponent
+          span={3}
+          type={"number"}
+          data={{
+            label: "Commercial Registration Number",
+            input: "1564562951544984",
+          }}
+        />
+        <ToggleComponent 
+          span={2}
+          checked={false}
+          label= "Do you have a point of sale system?"
+        />
+        <EditComponent
+          span={2}
+          type={"number"}
+          data={{
+            label: "Phone Number",
+            input: "201092124608",
+          }}
+        />
+        <EditComponent
+          span={2}
+          type={"text"}
+          data={{
+            label: "Field of Work",
+            input: "Real Estate and Roads",
+          }}
+        />
+        <DocComponent
+          span={3}
+          type={"text"}
+          data={{
+            label: "Field of Work",
+            input: "Real Estate and Roads",
+          }}
+        />
+        <DocComponent
+          span={3}
+          type={"text"}
+          data={{
+            label: "Field of Work",
+            input: "Real Estate and Roads",
+          }}
+        />
+        <DocComponent
+          span={3}
+          type={"text"}
+          data={{
+            label: "Field of Work",
+            input: "Real Estate and Roads",
+          }}
+        />
+        <UploadComponent
+          span={3}
+          type={"text"}
+          data={{
+            label: "Field of Work",
+            input: "Real Estate and Roads",
+          }}
+        />
       </div>
     </div>
   );
