@@ -6,12 +6,6 @@ import DocComponent from "../Component/DocComponent";
 import UploadComponent from "../Component/UploadComponent";
 
 function CompanyProfile() {
-  const [isModal, setIsModal] = useState(true);
-  const [isChecked, setIsChecked] = useState(false);
-  const handleToggle = () => {
-    setIsChecked(prevState => !prevState);
-  };
-  console.log("Check Status",isChecked)
   return (
     <div className="h-screen bg-neutral-900">
       <div className="grid gap-2 grid-cols-6 p-4">
@@ -79,7 +73,7 @@ function CompanyProfile() {
         />
         <DocComponent
           span={3}
-          type={"text"}
+          type={"doc"}
           data={{
             label: "Field of Work",
             input: "Real Estate and Roads",
@@ -87,7 +81,7 @@ function CompanyProfile() {
         />
         <DocComponent
           span={3}
-          type={"text"}
+          type={"doc"}
           data={{
             label: "Field of Work",
             input: "Real Estate and Roads",
@@ -95,7 +89,7 @@ function CompanyProfile() {
         />
         <UploadComponent
           span={3}
-          type={"text"}
+          type={"upload"}
           data={{
             label: "Field of Work",
             input: "Real Estate and Roads",
