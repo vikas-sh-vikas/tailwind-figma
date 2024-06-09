@@ -1,21 +1,19 @@
 import EditComponent from "../lib/components/EditComponent";
-import ToggleComponent from "../lib//components/ToggleComponent";
-import DocComponent from "../lib//components/DocComponent";
-import UploadComponent from "../lib//components/UploadComponent";
+import ToggleComponent from "../lib/components/ToggleComponent";
+import DocComponent from "../lib/components/DocComponent";
+import UploadComponent from "../lib/components/UploadComponent";
 import { useState } from "react";
 
 function CompanyProfile() {
-  const [data,setData] = useState<CompanyProfileModel>(
-    {
-      companyName:"الرياض, شارع14 بجوار محطة المترو",
-      name:"الشهد للمقاولات العمومية",
-      regNo:1564562951544984,
-      isSaleSystem:false,
-      phoneNo:201092124608,
-      employment:"العقارات والطرق"
-    }
-  )
-  console.log("Data",data)
+  const [data, setData] = useState<CompanyProfileModel>({
+    companyName: "الرياض, شارع14 بجوار محطة المترو",
+    name: "الشهد للمقاولات العمومية",
+    regNo: 1564562951544984,
+    isSaleSystem: false,
+    phoneNo: 201092124608,
+    employment: "العقارات والطرق",
+  });
+  console.log("Data", data);
   return (
     <div className="min-h-screen bg-neutral-900">
       <div className="grid gap-2 grid-cols-6 p-4">
@@ -27,7 +25,7 @@ function CompanyProfile() {
             label: "موقع الشركة",
             input: data?.companyName,
           }}
-          setFormData={(e)=>setData({...data,companyName:e})}
+          setFormData={(e) => setData({ ...data, companyName: e })}
         />
         <EditComponent
           span={3}
@@ -36,8 +34,7 @@ function CompanyProfile() {
             label: "الاسم",
             input: data?.name,
           }}
-          setFormData={(e)=>setData({...data,name:e})}
-
+          setFormData={(e) => setData({ ...data, name: e })}
         />
         <EditComponent
           span={3}
@@ -46,8 +43,7 @@ function CompanyProfile() {
             label: "تاريخ بداية العمل",
             input: "10/14/2022",
           }}
-          setFormData={(e)=>setData({...data,startDate:e})}
-
+          setFormData={(e) => setData({ ...data, startDate: e })}
         />
         <EditComponent
           span={3}
@@ -56,7 +52,7 @@ function CompanyProfile() {
             label: "رقم السجل التجارى",
             input: String(data?.regNo),
           }}
-          setFormData={(e)=>setData({...data,regNo:+e})}
+          setFormData={(e) => setData({ ...data, regNo: +e })}
         />
         <ToggleComponent
           span={2}
@@ -70,8 +66,7 @@ function CompanyProfile() {
             label: "رقم الهاتف",
             input: String(data?.phoneNo),
           }}
-          setFormData={(e)=>setData({...data,phoneNo:+e})}
-
+          setFormData={(e) => setData({ ...data, phoneNo: +e })}
         />
         <EditComponent
           span={2}
@@ -80,8 +75,7 @@ function CompanyProfile() {
             label: "مجال العمل",
             input: data?.employment,
           }}
-          setFormData={(e)=>setData({...data,employment:e})}
-
+          setFormData={(e) => setData({ ...data, employment: e })}
         />
         <DocComponent
           span={3}
