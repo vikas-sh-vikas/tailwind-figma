@@ -1,17 +1,18 @@
 import { useState } from "react";
-import Modal from "./Modal";
+import Modal from "../components/Modal";
 
 type EditModal = {
   span: number;
   type: string;
   data: {
-    label: string;
+    label: string;  
     input: string;
   };
 };
 
 function DocComponent({ span, data, type }: EditModal) {
   const [isModal, setIsmodal] = useState(false);
+
   const openModal = () => {
     setIsmodal(true);
   };
@@ -21,7 +22,7 @@ function DocComponent({ span, data, type }: EditModal) {
   return (
     <>
       <div
-        className={`bg-neutral-700 col-span-${span} flex justify-between rounded-lg p-3`}
+        className={`bg-neutral-700 sm:col-span-${span} col-span-6 flex justify-between rounded-lg p-3`}
       >
         <div className="flex items-center">
           <svg

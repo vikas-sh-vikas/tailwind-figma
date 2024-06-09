@@ -1,17 +1,11 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 
-type EditModal = {
-  span: number;
-  type: string;
-  data: {
-    label: string;
-    input: string;
-  };
-};
 
-function UploadComponent({ span, data, type }: EditModal) {
+
+function UploadComponent({ span, type }: UploadStateProps) {
   const [isModal, setIsmodal] = useState(false);
+
   const openModal = () => {
     setIsmodal(true);
   };
@@ -21,22 +15,24 @@ function UploadComponent({ span, data, type }: EditModal) {
   return (
     <>
       <div
-        className={`flex justify-center bg-gradient-to-r from-neutral-800 to-orange-400 bg-opacity-75 col-span-${span} rounded-lg p-3 border-2 border-dashed border-orange-700`}
+        className={`flex justify-center bg-gradient-to-r from-neutral-800 to-orange-400 bg-opacity-75 sm:col-span-${span} col-span-6 rounded-lg p-3 border-2 border-dashed border-orange-700`}
       >
         <div className="flex">
           <div className="flex items-center pr-2">
             <p className="text-white">
-              Click{" "}
+              اضغط{" "}
               <span
                 className="text-orange-300 cursor-pointer"
                 onClick={openModal}
               >
-                here
+                هنا
               </span>{" "}
-              to add the license
+              لاضافة ملف الرخصة
             </p>
           </div>
-          <button className="rounded-full p-4 bg-gradient-to-r from-neutral-800 to-orange-400 bg-opacity-75">
+          <button className="rounded-full p-4 bg-gradient-to-r from-neutral-800 to-orange-400 bg-opacity-75"
+                onClick={openModal}
+                >
             <svg
               className="w-5 h-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -51,16 +47,7 @@ function UploadComponent({ span, data, type }: EditModal) {
         </div>
       </div>
 
-      <Modal
-        isOpen={isModal}
-        closeModal={closeModal}
-        data={{
-          label: data.label,
-          input: data.input,
-        }}
-        type={type}
-        setData={(e) => console.log(e)}
-      />
+      <Modal isOpen={isModal} closeModal={closeModal} type={type} />
     </>
   );
 }

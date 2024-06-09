@@ -1,20 +1,19 @@
 import { useState } from "react";
 
-type EditModal = {
-  span: number;
-  checked: boolean;
-  label: string;
-};
 
-function ToggleComponent({ span, checked, label }: EditModal) {
+
+function ToggleComponent({ span, checked, label }: ToggleStateProps) {
   const [toggle, setToggle] = useState(checked);
+
   const handleToggle = () => {
     setToggle(!toggle);
   };
   return (
     <>
-      <div className={`bg-neutral-700 col-span-${span}  rounded-lg p-3`}>
-        <div className="absolute p-1">
+      <div
+        className={`bg-neutral-700 sm:col-span-${span} col-span-6 rounded-lg p-3 relative`}
+      >
+        <div className="absolute top-0 left-0 m-4">
           <label className="inline-flex items-center cursor-pointer">
             <input
               type="checkbox"
@@ -27,7 +26,7 @@ function ToggleComponent({ span, checked, label }: EditModal) {
           </label>
         </div>
         <p className="text-sm text-neutral-400 text-end">{label}</p>
-        <p className="text-lg text-white text-end">{toggle ? "Yes" : "No"}</p>
+        <p className="text-lg text-white text-end">{toggle ? "نعم" : "لا"}</p>
       </div>
     </>
   );
