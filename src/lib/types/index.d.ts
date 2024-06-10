@@ -5,7 +5,8 @@ type CompanyProfileModel = {
     regNo:number,
     isSaleSystem:boolean,
     phoneNo:number,
-    employment:string
+    employment:string,
+    licence?:File,
   }
 
   type EditStateProps = {
@@ -22,6 +23,7 @@ type CompanyProfileModel = {
     span: number;
     checked: boolean;
     label: string;
+    setFromdata: (e:boolean)=> void
   };
 
   type UploadStateProps = {

@@ -58,6 +58,7 @@ function CompanyProfile() {
           span={2}
           checked={false}
           label="هل لديك نظام نقاط البيع"
+          setFromdata={(e)=>setData({...data,isSaleSystem:e})}
         />
         <EditComponent
           span={2}
@@ -101,7 +102,8 @@ function CompanyProfile() {
             input: "رخصة العمل2024/32",
           }}
         />
-        <UploadComponent span={3} type={"upload"} />
+        <UploadComponent span={3} type={"upload"}
+         />
       </div>
     </div>
   );

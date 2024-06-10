@@ -2,16 +2,17 @@ import { useState } from "react";
 
 
 
-function ToggleComponent({ span, checked, label }: ToggleStateProps) {
+function ToggleComponent({ span, checked, label,setFromdata }: ToggleStateProps) {
   const [toggle, setToggle] = useState(checked);
 
   const handleToggle = () => {
     setToggle(!toggle);
+    setFromdata(!toggle)
   };
   return (
     <>
       <div
-        className={`bg-neutral-700 sm:col-span-${span} col-span-6 rounded-lg p-3 relative`}
+        className={`bg-neutral-700 sm:col-span-3 col-span-6 rounded-lg p-3 relative`}
       >
         <div className="absolute top-0 left-0 m-4">
           <label className="inline-flex items-center cursor-pointer">
